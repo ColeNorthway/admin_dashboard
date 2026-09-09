@@ -1,5 +1,5 @@
 # TODO
-  1) Get video playing full screen background
+  1) ~~Get video playing full screen background~~
   2) Figure out how to pick the right resolution automatically with media queries
   3) Get top bar dark cloud
   4) Get side bar parchment
