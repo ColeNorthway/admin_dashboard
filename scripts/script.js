@@ -5,12 +5,14 @@ function sleep(time) {
 
 function fadeOutLoadingScreen() {
   let loadScreen = document.getElementById('load-screen');
+  loadScreen.style.opacity = "0";
   loadScreen.classList.add("faded-out");
 }
 
-function fadeInLoadingScreen() {
+function showLoadingScreen() {
   let loadScreen = document.getElementById('load-screen');
-  loadScreen.classList.add("faded-in");
+  loadScreen.classList.remove("faded-out");
+  loadScreen.style.opacity = "1";
 }
 
 
@@ -42,7 +44,7 @@ async function changeScreen(playerStatus) {
   if (playerStatus === 1) {
 
     /* Showing Video on Start */
-    // alert('Started in Callback');
+    console.log("Started Callback");
 
     /* Ensuring playbutton exits */
     await sleep(4000);
@@ -51,12 +53,9 @@ async function changeScreen(playerStatus) {
   } else if (playerStatus === 2) {
 
     /* Showing Loading Screen on Stop */
-    // alert('Stopped in Callback');
+    console.log("Stopped Callback");
 
-    /* Ensuring playbutton exits */
-    await sleep(4000);
-
-    fadeInLoadingScreen();
+    showLoadingScreen();
   }
 }
 
