@@ -2,6 +2,7 @@
   1) ~~Get video playing full screen background~~
   2) Figure out how to pick the right resolution automatically with media queries
     - Also figure out how to make the title and the pause disappear
+      - Figure out how to load api, separate scripts?, deffered?, where to inject?
     - Look at the API reference
   3) Get top bar dark cloud
   4) Get side bar parchment
