@@ -4,6 +4,9 @@
   3) ~~Get top bar dark cloud~~
   4) Fill out the top bar
     + Put a horned viking icon
+    + Put active camps and gold, silver and copper
+      + Put that inside a div
+      + Later we can style it
     + Get main title
   5) Get side bar parchment
     + Get pieces
