@@ -131,4 +131,14 @@
 #right-top-bar {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+#search-right-top-bar {
+  display: flex;
+}
+#icons-right-top-bar {
+  display: flex;
+}
+#settings-right-top-bar {
+  display: flex;
 }
