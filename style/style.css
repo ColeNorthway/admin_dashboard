@@ -12,6 +12,9 @@
   --fresh-seaweed: #8A9999;
   --sliced-fresh-seaweed: rgba(138, 153, 153, 0.5);
   --torch-light: #EB893B;
+  --good: #2DDE10;
+  --warning: #DADE2C;
+  --bad: #DE2824;
 }
 
 /* Cannot Click On */
@@ -26,6 +29,18 @@
   src: url('../data/fonts/BlackLetter/BlackletterExBold.woff2');
   font-weight: 800;
   font-style: normal;
+}
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../data/fonts/MerriWeather/Merriweather-VariableFont_opsz,wdth,wght.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../data/fonts/MerriWeather/Merriweather-Italic-VariableFont_opsz,wdth,wght.ttf');
+  font-weight: 300;
+  font-style: italic;
 }
 
 /* Animation Presets */
@@ -161,6 +176,27 @@
 #line-left-top-bar > path {
   fill: var(--frozen-seaweed);
 }
+#inner-left-top-bar > span {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+}
+#inner-left-top-bar > span > span {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+#active-shs {
+  color: var(--warning);
+}
+#gold {
+  color: var(--good);
+}
+#silver {
+  color: var(--bad);
+}
+#copper {
+  color: var(--good);
+}
 
 /* Right-Top-Bar */
 #right-top-bar {
@@ -258,4 +294,3 @@
 .red{
   background-image: linear-gradient(to bottom, rgba(210,77,87,1), rgba(210,77,87,0));
 }
-/*rgba(, 1);}*/
