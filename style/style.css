@@ -2,6 +2,7 @@
   --frozen-seaweed: #BAD4D4;
   --rust: #996A46;
   --rust-hard: #b1441a;
+  --rust-solid: #A34307;
   --gray-clouds: #69615e;
   --new-paper: #E3DCC5;
   --used-paper: #B5AD96;
@@ -9,6 +10,7 @@
   --ancient-paper: #827C67;
   --permafrost: #D1EDFF;
   --slush: #486475;
+  --dark-slush: #4B4D52;
   --fresh-seaweed: #8A9999;
   --sliced-fresh-seaweed: rgba(138, 153, 153, 0.5);
   --torch-light: #EB893B;
@@ -34,6 +36,12 @@
   font-family: 'Merriweather';
   src: url('../data/fonts/MerriWeather/Merriweather-VariableFont_opsz,wdth,wght.ttf');
   font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../data/fonts/MerriWeather/Merriweather-Italic-VariableFont_opsz,wdth,wght.ttf');
+  font-weight: 700;
   font-style: normal;
 }
 @font-face {
@@ -198,6 +206,11 @@
   color: var(--good);
 }
 
+/* Middle Bar */
+#mine {
+  margin-top: 25px;
+}
+
 /* Right-Top-Bar */
 #right-top-bar {
   display: flex;
@@ -206,14 +219,82 @@
 }
 #search-right-top-bar {
   display: flex;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
 }
 #icons-right-top-bar {
   display: flex;
+  justify-content: flex-end;
   user-select: none;
+  margin-top: 4px;
 }
 #settings-right-top-bar {
   display: flex;
+  justify-content: flex-end;
   user-select: none;
+  margin-top: 4px;
+}
+
+/* Right-Top-Bar Input Controls */
+#search-right-top-bar > label {
+  margin-right: 5px;
+  font-size: 22px;
+}
+#search-right-top-bar > input {
+  border: 2px solid var(--fresh-seaweed);
+  background-color: var(--slush);
+  color: var(--frozen-seaweed);
+}
+#search-right-top-bar > input::placeholder {
+  font-weight: 300;
+  font-style: italic;
+  color: var(--bad);
+  user-select: none;
+  pointer-events: none;
+}
+
+#icons-right-top-bar > button {
+  margin-left: 5px;
+}
+
+#settings-right-top-bar > button {
+  margin-left: 5px;
+  color: var(--slush);
+  border: 1px solid var(--fresh-seaweed);
+  background-color: var(--frozen-seaweed);
+}
+
+#dark-mode-btn {
+  border: 1px solid var(--fresh-seaweed);
+  background-color: var(--frozen-seaweed);
+  width: 60px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.5s, border-color 0.5s;
+}
+#dark-mode-square {
+  background-color: var(--slush);
+  color: var(--frozen-seaweed);
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.5s;
+}
+#dark-mode-btn.active #dark-mode-square {
+  left: 32px;
+}
+#alerts-btn {
+  color: var(--slush);
+  border: 1px solid var(--fresh-seaweed);
+  background-color: var(--frozen-seaweed);
+}
+#profile-btn {
+  color: var(--slush);
+  border: 1px solid var(--fresh-seaweed);
+  background-color: var(--frozen-seaweed);
 }
 
 /* Left Scroll Svg Buttons */
@@ -227,6 +308,13 @@
 }
 #sb-btn-wrapper > button {
   margin-bottom: 12px;
+  color: var(--slush);
+  border: 1px solid var(--fresh-seaweed);
+  background-color: var(--frozen-seaweed);
+}
+#sb-btn-wrapper span {
+  user-select: none;
+  pointer-events: none;
 }
 #sb-btn-1 { margin-left: 10px; }
 #sb-btn-2 { margin-left: 25px; }
@@ -252,6 +340,13 @@
   align-items: center;
   border: 1px solid var(--frozen-seaweed);
 }
+#main-grid p {
+  user-select: none;
+  pointer-events: none;
+  font-family: 'Merriweather', serif;
+  font-size: 22px;
+  color: var(--bad);
+}
 .header-div-grid {
   display: flex;
   justify-content: center;
@@ -267,9 +362,12 @@
   padding:0;
   margin:0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   position:relative;
+}
+.row table {
+  margin-top: 4px;
 }
 
 /* Grid Red Waves SVG */
@@ -293,4 +391,12 @@
 /* Background Gradient on Grid */
 .red{
   background-image: linear-gradient(to bottom, rgba(210,77,87,1), rgba(210,77,87,0));
+}
+
+/* Table */
+td {
+  text-align: center;
+}
+th {
+  text-align: center;
 }

@@ -8,6 +8,7 @@
   <title>Njord's Port</title>
   <link rel="stylesheet" href="style/reset.css">
   <link rel="stylesheet" href="style/style.css">
+  <script src="https://kit.fontawesome.com/52dcd4bb33.js" crossorigin="anonymous"></script>
   <script src="scripts/script.js" defer></script>
 </head>
 <body>
@@ -69,15 +70,15 @@
 
   <!-- Side Bar Buttons -->
   <div id="sb-btn-wrapper">
-    <button id="sb-btn-1">Home</button>
-    <button id="sb-btn-2">Profile</button>
-    <button id="sb-btn-3">Messages</button>
-    <button id="sb-btn-4">History</button>
-    <button id="sb-btn-5">Tasks</button>
-    <button id="sb-btn-6">Strongholds</button>
-    <button id="sb-btn-7">FAQ</button>
-    <button id="sb-btn-8">Support</button>
-    <button id="sb-btn-9">Privacy</button>
+    <button id="sb-btn-1"><span>Home</span></button>
+    <button id="sb-btn-2"><span>Profile</span></button>
+    <button id="sb-btn-3"><span>Messages</span></button>
+    <button id="sb-btn-4"><span>History</span></button>
+    <button id="sb-btn-5"><span>Tasks</span></button>
+    <button id="sb-btn-6"><span>Strongholds</span></button>
+    <button id="sb-btn-7"><span>FAQ</span></button>
+    <button id="sb-btn-8"><span>Support</span></button>
+    <button id="sb-btn-9"><span>Privacy</span></button>
   </div>
 
   <!-- Wrapper Div For Style -->
@@ -113,22 +114,34 @@
           <span>Copper: <span id="copper">1,429,002</span></span>
         </div>
       </div>
+
+      <!-- Middle Bar -->
       <div id="title-group" class="unclickable">
         <h1 class="title-h2">Njord's</h1>
-        <img src="data/imgs/mine.png" alt='Cartoon Sea Mine clip art' width="200"/>
+        <img src="data/imgs/mine.png" alt='Cartoon Sea Mine clip art' width="150" id="mine" />
         <h1 class="title-h2">Port</h1>
       </div>
+
+      <!-- Right Top Bar -->
       <div id="right-top-bar">
         <!--Input-->
         <div id="search-right-top-bar">
           <label for="search" class="unclickable">Search:</label>
-          <input type="text" id="search">
+          <input type="text" id="search" placeholder="ᚼᛁᛚᛚᚬ × ᛘᛁᛏᚴᛅᚱᛏ">
         </div>
         <!--Icons and Profile-->
         <div id="icons-right-top-bar">
-          <button>Dark Mode</button>
-          <button>Alerts</button>
-          <button>Profile</button>
+          <button id="dark-mode-btn" onclick="fakeSwitchTheme()">
+            <span id="dark-mode-square">
+              <i class="fa-solid fa-moon"></i>
+            </span>
+          </button>
+          <button id="alerts-btn">
+            <i class="fa-regular fa-bell"></i>
+          </button>
+          <button id="profile-btn">
+            <i class="fa-solid fa-user"></i>
+          </button>
         </div>
         <!--Settings-->
         <div id="settings-right-top-bar">
@@ -164,6 +177,32 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Raids</th>
+              <th>Success</th>
+            </tr>
+            <tr>
+              <td>Wales</td>
+              <td>True</td>
+            </tr>
+            <tr>
+              <td>Unknown Sea</td>
+              <td>?</td>
+            </tr>
+            <tr>
+              <td>Greenland</td>
+              <td>True</td>
+            </tr>
+            <tr>
+              <td>Lindisfarne Priory</td>
+              <td>True</td>
+            </tr>
+            <tr>
+              <td>Stamford Bridge</td>
+              <td>False</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -190,6 +229,28 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Ceremonies</th>
+              <th>Count</th>
+            </tr>
+            <tr>
+              <td>Norse Sacrifices</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>Namings</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Ship Burials</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Feasts</td>
+              <td>13</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -216,6 +277,28 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Blacksmiths</th>
+              <th>Occupied</th>
+            </tr>
+            <tr>
+              <td>Bjorn</td>
+              <td>True</td>
+            </tr>
+            <tr>
+              <td>Harald</td>
+              <td>False</td>
+            </tr>
+            <tr>
+              <td>Magnus</td>
+              <td>True</td>
+            </tr>
+            <tr>
+              <td>Ulf</td>
+              <td>True</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -242,6 +325,40 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Warriors</th>
+              <th>Slain</th>
+            </tr>
+            <tr>
+              <td>Ulf</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>Sune</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Trygve</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Odger</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Torsten</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Odger</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Torsten</td>
+              <td>1</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -268,6 +385,32 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Threats</th>
+              <th>Level</th>
+            </tr>
+            <tr>
+              <td>Saxons</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>Franks</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>Internal</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Native Americans</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>Slavics</td>
+              <td>9</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -294,6 +437,32 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Product</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Fish</td>
+              <td>Great</td>
+            </tr>
+            <tr>
+              <td>Dairy</td>
+              <td>Ok</td>
+            </tr>
+            <tr>
+              <td>Grains</td>
+              <td>Moderate</td>
+            </tr>
+            <tr>
+              <td>Ale</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Lettuce</td>
+              <td>Egregious</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -320,6 +489,32 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Event</th>
+              <th>Years Past</th>
+            </tr>
+            <tr>
+              <td>Gods and Giants Fighting</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Hiemdall and Loki Fighting</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>Thor Ate His Goat</td>
+              <td>0.0001</td>
+            </tr>
+            <tr>
+              <td>Odin Hurt His Eye</td>
+              <td>900</td>
+            </tr>
+            <tr>
+              <td>Dwarfs begin to plot on Kvasir</td>
+              <td>2</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -346,6 +541,32 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Base</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Newfoundland</td>
+              <td>???</td>
+            </tr>
+            <tr>
+              <td>Greenland</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Russia</td>
+              <td>Ok</td>
+            </tr>
+            <tr>
+              <td>Norway</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Sweden</td>
+              <td>Excellent</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -372,6 +593,32 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Steel</td>
+              <td>Processing<td>
+            </tr>
+            <tr>
+              <td>Lumbar</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Cattle</td>
+              <td>Ok</td>
+            </tr>
+            <tr>
+              <td>Fish</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Crop</td>
+              <td>Ok</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -398,6 +645,32 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Ship</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Ormurin Langi</td>
+              <td>Great<td>
+            </tr>
+            <tr>
+              <td>Visundur</td>
+              <td>Repairing</td>
+            </tr>
+            <tr>
+              <td>Falki</td>
+              <td>Ok</td>
+            </tr>
+            <tr>
+              <td>Alptr</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Uxi</td>
+              <td>Good</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -424,6 +697,28 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Treaties</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Saxons</td>
+              <td>Terrible<td>
+            </tr>
+            <tr>
+              <td>Slavs</td>
+              <td>Mixed</td>
+            </tr>
+            <tr>
+              <td>Denmark</td>
+              <td>Ok</td>
+            </tr>
+            <tr>
+              <td>Native Americans</td>
+              <td>Bad<td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
@@ -450,11 +745,28 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Faction</th>
+            </tr>
+            <tr>
+              <td>Each Other</td>
+            </tr>
+            <tr>
+              <td>Saxons</td>
+            </tr>
+            <tr>
+              <td>Some Irish</td>
+            </tr>
+            <tr>
+              <td>Byzantines</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
         <div class="header-div-grid">
-          <p>HI</p>
+          <p>Crops</p>
         </div>
         <div class="row red">
           <div>
@@ -476,11 +788,33 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Crop</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Vegtables</td>
+              <td>Terrible<td>
+            </tr>
+            <tr>
+              <td>Root Crops</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Flax and Hemp</td>
+              <td>Ok</td>
+            </tr>
+            <tr>
+              <td>Grains</td>
+              <td>Ok<td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
         <div class="header-div-grid">
-          <p>HI</p>
+          <p>Ore Supply</p>
         </div>
         <div class="row red">
           <div>
@@ -502,11 +836,37 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Ore</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Bog Iron</td>
+              <td>Good<td>
+            </tr>
+            <tr>
+              <td>Lake Ore</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Copper (plunder)</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Silver (plunder)</td>
+              <td>Bad<td>
+            </tr>
+            <tr>
+              <td>Gold</td>
+              <td>Good<td>
+            </tr>
+          </table>
         </div>
       </div>
       <div>
         <div class="header-div-grid">
-          <p>HI</p>
+          <p>Plunder</p>
         </div>
         <div class="row red">
           <div>
@@ -528,6 +888,28 @@
               <path class="" style="fill: rgba(210, 77, 87, 1);" d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40 s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
             </svg>
           </div>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Gold</td>
+              <td>Good<td>
+            </tr>
+            <tr>
+              <td>Silver</td>
+              <td>Bad</td>
+            </tr>
+            <tr>
+              <td>Copper</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Platinum</td>
+              <td>Bad<td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

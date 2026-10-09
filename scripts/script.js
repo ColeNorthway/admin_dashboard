@@ -63,3 +63,41 @@ async function changeScreen(playerStatus) {
 function onPlayerStateChange(event) {
   changeScreen(event.data);
 }
+
+/* Dark Mode Button */
+let isDarkMode = true;
+
+function fakeSwitchTheme() {
+  console.log('In Theme Switch');
+  const toggleButton = document.querySelector('#dark-mode-btn');
+  const toggleSquare = document.querySelector('#dark-mode-square');
+  const icon = toggleSquare.children[0];
+
+  isDarkMode = !isDarkMode;
+
+  if (isDarkMode) {
+    toggleButton.classList.remove('active');
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  } else {
+    toggleButton.classList.add('active');
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
