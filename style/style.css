@@ -8,7 +8,7 @@
   --used-paper: #B5AD96;
   --old-paper: #9E967E;
   --ancient-paper: #827C67;
-  --permafrost: #D1EDFF;
+  --permafrost: #nD1EDFF;
   --slush: #486475;
   --dark-slush: #4B4D52;
   --fresh-seaweed: #8A9999;
@@ -69,9 +69,11 @@
 
 /* Load Screen and Title Group */
 #load-screen {
-  position: absolute;
-  z-index: 5;
-  width: 100%;
+  position: fixed; /* Changed to fixed so it never scrolls away */
+  top: 0;          /* Lock to the top edge */
+  left: 0;         /* Lock to the left edge */
+  z-index: 9999;   /* Force it above the fixed top-bar */
+  width: 100vw;
   height: 100vh;
   background-color: var(--frozen-seaweed);
   display: flex;
@@ -99,11 +101,12 @@
 /* Background Video */
 #video-carriage {
   position: fixed;
-  z-index: -1;
-  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2; /* Pushed to -2 so it sits behind the clouds (-1) */
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
-  aspect-ratio: 16/9;
 }
 #ytplayer {
   /* Positioning */
@@ -117,6 +120,10 @@
 /* Cloud SVG */
 #cloud-svg {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;   /* Force it to span the full viewport width */
+  height: 278px;  /* Keep the original height */
   z-index: -1;
 }
 #cloud-svg > path {
@@ -135,11 +142,13 @@
 
 /* Scroll SVG */
 #scroll-svg {
+  position: fixed;
+  top: 240px;      /* Locks it right under the cloud */
+  left: 30px;      /* Locks it to the left side */
   height: 60rem;
   width: auto;
-  margin-top: 18rem;
-  position: fixed;
-  /*padding-top: 25vh;*/
+  margin-top: 0;   /* Removes the old margin */
+  z-index: 2;      /* Keeps it above the video, below buttons */
 }
 #scroll-svg path {
   fill: url("#scroll-gradient");
@@ -164,8 +173,15 @@
 
 /* Top-Bar */
 #top-bar {
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 1rem 7.3rem; /* Re-apply padding since it's pulled out of the wrapper */
+  box-sizing: border-box;
+  z-index: 100; /* Ensure it stays above grid content */
 }
 
 /* Left-Top-Bar */
@@ -303,8 +319,9 @@
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 425px;
-  left: 120px;
+  top: 390px;      /* Pins the buttons perfectly vertically inside the scroll */
+  left: 95px;      /* Centers the buttons horizontally inside the scroll */
+  z-index: 3;      /* Keeps buttons clickable above the scroll */
 }
 #sb-btn-wrapper > button {
   margin-bottom: 12px;
@@ -328,11 +345,12 @@
 
 /* Main-Grid */
 #main-grid {
-  margin-top: 6.5rem;
-  margin-left: 220px;
+  margin-top: 300px; /* Pushes the grid completely below the 278px fixed clouds */
+  margin-left: 260px; /* Pushes the grid to the right of the scroll menu */
   display: grid;
   grid-template: repeat(3, 300px) / repeat(5, 405px); /* 3-5 ratio */
   gap: 1rem;
+  z-index: 1; /* Ensures it stays underneath the top bar */
 }
 #main-grid > div {
   display: flex;
@@ -399,4 +417,63 @@ td {
 }
 th {
   text-align: center;
+}
+
+
+/* Resizing Fix */
+
+/* 1. Make the cards scrollable internally if content (like tables) gets too big */
+#main-grid > div {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+/* 2. When the screen is smaller than 1200px (Tablets & Mobile) */
+@media (max-width: 1200px) {
+
+  /* Prevent the whole window from side-scrolling */
+  body, html {
+    overflow-x: hidden;
+  }
+
+  /* Shrink the outer padding */
+  #wrapper-div {
+    padding: 0 2rem 2rem 2rem;
+  }
+
+  /* Stack the Top Bar elements */
+  #top-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Fix the Grid: Auto-fit columns instead of forcing 5 columns of 405px */
+  #main-grid {
+    margin-left: 0; /* Remove the gap left for the sidebar */
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-scales! */
+    grid-auto-rows: 300px; /* Keeps your 300px height */
+  }
+
+  /* Fix the Sidebar Buttons: Turn them into a horizontal row above the grid */
+  #sb-btn-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  /* Reset those hardcoded left-margins on the buttons */
+  #sb-btn-wrapper > button {
+    margin: 5px !important;
+  }
+
+  /* Hide the giant scroll background SVG on smaller screens so it doesn't block text */
+  #scroll-svg {
+    display: none;
+  }
 }
